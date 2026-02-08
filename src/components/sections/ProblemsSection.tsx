@@ -1,9 +1,15 @@
 import { useLanguage } from "@/lenguajeContext/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle, ArrowRight } from "lucide-react";
+import { useScrollAnimationMultiple } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 const ProblemsSection = () => {
   const { t } = useLanguage();
+  const { setRef, visibleItems } = useScrollAnimationMultiple(
+    t.problems.items.length,
+    { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+  );
 
   return (
     <section id="problems" className="section-padding bg-background/30">
@@ -20,34 +26,48 @@ const ProblemsSection = () => {
 
         {/* Problems grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {t.problems.items.map((problem, index) => (
-            <Card
-              key={index}
-              className="group bg-card hover:shadow-lg transition-all duration-300 border-border hover:border-primary/30 overflow-hidden"
-            >
-              <CardContent className="p-6 md:p-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">
-                    <AlertCircle className="w-6 h-6 text-destructive" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      {problem.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4">
-                      {problem.description}
-                    </p>
-                    <div className="flex items-start gap-2 p-3 bg-brand-teal-light rounded-lg">
-                      <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <p className="text-sm text-primary font-medium">
-                        {problem.solution}
-                      </p>
+          {t.problems.items.map((problem, index) => {
+            const isLeft = index % 2 === 0;
+            return (
+              <div
+                key={index}
+                ref={setRef(index)}
+                className={cn(
+                  "transition-all duration-700 ease-out",
+                  visibleItems[index]
+                    ? "opacity-100 translate-x-0"
+                    : isLeft
+                      ? "opacity-0 -translate-x-16"
+                      : "opacity-0 translate-x-16"
+                )}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <Card className="group bg-card hover:shadow-lg transition-all duration-300 border-border hover:border-primary/30 overflow-hidden h-full">
+                  <CardContent className="p-6 md:p-8">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">
+                        <AlertCircle className="w-6 h-6 text-destructive" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-foreground mb-2">
+                          {problem.title}
+                        </h3>
+                        <p className="text-muted-foreground mb-4">
+                          {problem.description}
+                        </p>
+                        <div className="flex items-start gap-2 p-3 bg-brand-teal-light rounded-lg">
+                          <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                          <p className="text-sm text-primary font-medium">
+                            {problem.solution}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
 import { useLanguage } from "@/lenguajeContext/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { BarChart3, Store, Calendar, Settings } from "lucide-react";
+import { useScrollAnimationMultiple } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 const iconMap = {
   chart: BarChart3,
@@ -11,6 +13,10 @@ const iconMap = {
 
 const SolutionsSection = () => {
   const { t } = useLanguage();
+  const { setRef, visibleItems } = useScrollAnimationMultiple(
+    t.solutions.items.length,
+    { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+  );
 
   return (
     <section id="solutions" className="section-padding">
@@ -31,22 +37,31 @@ const SolutionsSection = () => {
             const IconComponent = iconMap[solution.icon as keyof typeof iconMap] || Settings;
 
             return (
-              <Card
+              <div
                 key={index}
-                className="group bg-card hover:shadow-xl transition-all duration-300 border-border hover:border-primary/30 text-center"
+                ref={setRef(index)}
+                className={cn(
+                  "transition-all duration-700 ease-out",
+                  visibleItems[index]
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                )}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <CardContent className="p-6 md:p-8">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary/10 to-brand-green/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-3">
-                    {solution.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {solution.description}
-                  </p>
-                </CardContent>
-              </Card>
+                <Card className="group bg-card hover:shadow-xl transition-all duration-300 border-border hover:border-primary/30 text-center h-full">
+                  <CardContent className="p-6 md:p-8">
+                    <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary/10 to-brand-green/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground mb-3">
+                      {solution.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {solution.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             );
           })}
         </div>
