@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  base: 'https://freaknsht.github.io/ImpulsoSoft/',
+  base: '/', //Para gh-pages: base: 'https://freaknsht.github.io/ImpulsoSoft/'
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
