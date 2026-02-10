@@ -1,7 +1,13 @@
 import { useLanguage } from "@/lenguajeContext/LanguageContext";
+import { useScrollAnimationMultiple } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 const ProcessSection = () => {
   const { t } = useLanguage();
+  const { setRef, visibleItems } = useScrollAnimationMultiple(
+    t.process.steps.length,
+    { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+  );
 
   return (
     <section id="process" className="section-padding bg-secondary text-secondary-foreground">
@@ -19,7 +25,17 @@ const ProcessSection = () => {
         {/* Process steps */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {t.process.steps.map((step, index) => (
-            <div key={index} className="text-center lg:text-left">
+            <div
+              key={index}
+              ref={setRef(index)}
+              className={cn(
+                "text-center lg:text-left transition-all duration-700 ease-out",
+                visibleItems[index]
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-16"
+              )}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
               {/* Number with connector line */}
               <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-foreground/10 mb-4">
                 <span className="text-2xl font-bold text-primary-foreground">
