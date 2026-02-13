@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Send, MessageCircle, CheckCircle, AlertCircle } from "lucide-react";
+import { Send, MessageCircle, CheckCircle, AlertCircle, ArrowRight } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 // Configuración de EmailJS (reemplazar por los IDs de tu cuenta de EmailJS)
@@ -60,7 +60,23 @@ const ContactSection = () => {
   return (
     <section id="contact" className="section-padding">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
+
+        {/* CTA Banner */}
+        <div className="max-w-3xl mx-auto mb-12 text-center p-8 rounded-2xl bg-gradient-to-r from-primary/10 to-brand-green/10 border border-primary/20">
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+            {t.contact.cta}
+          </h3>
+          <p className="text-muted-foreground mb-6">
+            {t.contact.ctaDescription}
+          </p>
+          <a href="#contact-form">
+            <Button size="lg" className="gap-2">
+              {t.contact.form.submit}
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </a>
+        </div>
+        <div id="contact-form" className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
           {/* Lado izquierdo - Texto e WhatsApp */}
           <div className="text-center lg:text-left">
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">

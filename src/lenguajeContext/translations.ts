@@ -3,7 +3,8 @@ export const translations = {
     // Navigation
     nav: {
       problems: "Problemas",
-      solutions: "Soluciones",
+      solutions: "Servicios",
+      about: "Nosotros",
       process: "Proceso",
       cases: "Casos",
       contact: "Contacto",
@@ -93,6 +94,76 @@ export const translations = {
         },
       ],
     },
+    // About section
+    about: {
+      title: "Quiénes somos",
+      subtitle: "Conocenos",
+      description:
+        "Somos ImpulsoSoft, un equipo joven y autodidacta formado en Ingeniería en Sistemas de Información. Creamos soluciones tecnológicas prácticas, simples y eficaces para que pymes y comercios locales puedan crecer con presencia digital profesional, procesos internos ordenados y herramientas que facilitan el día a día del negocio.",
+      description2:
+        "Trabajamos con honestidad, foco en resultados y una comunicación clara desde el primer contacto.",
+      whyTitle: "¿Por qué nacimos?",
+      whyDescription:
+        "Porque vimos que muchos negocios locales tienen ganas de crecer pero no encuentran soluciones tecnológicas que hablen su idioma. Nosotros llenamos ese vacío.",
+      values: {
+        title: "Nuestra forma de trabajar",
+        items: [
+          {
+            title: "Honestidad total",
+            description: "Te decimos lo que necesitás, no lo que queremos venderte.",
+          },
+          {
+            title: "Comunicación clara",
+            description: "Sin tecnicismos. Te explicamos todo en lenguaje simple.",
+          },
+          {
+            title: "Foco en resultados",
+            description: "No hacemos tecnología por hacer. Todo tiene un propósito para tu negocio.",
+          },
+          {
+            title: "Trabajo colaborativo",
+            description: "Construimos juntos. Vos conocés tu negocio, nosotros la tecnología.",
+          },
+        ],
+      },
+      teamNote: "Detrás de ImpulsoSoft hay personas reales, comprometidas con cada proyecto.",
+    },
+    // Mission & Vision
+    missionVision: {
+      missionLabel: "Misión",
+      missionText:
+        "Impulsar a negocios locales mediante soluciones tecnológicas accesibles que potencien su presencia online, aumenten su productividad y generen confianza en sus clientes.",
+      visionLabel: "Visión",
+      visionText:
+        "Ser referencia en soluciones digitales prácticas para pymes en Argentina, reconocidos por facilitar la transformación digital con herramientas simples, efectivas y alineadas a los objetivos reales de cada negocio.",
+    },
+    // Why choose us
+    whyChooseUs: {
+      title: "¿Por qué elegirnos?",
+      subtitle: "Lo que nos diferencia",
+      items: [
+        {
+          title: "No vendemos soluciones genéricas",
+          description: "Cada proyecto se diseña desde cero pensando en tu negocio, tus clientes y tus objetivos.",
+        },
+        {
+          title: "Analizamos antes de proponer",
+          description: "Primero entendemos tu problema real. Después proponemos tecnología, no al revés.",
+        },
+        {
+          title: "Sistemas simples de verdad",
+          description: "Si no es fácil de usar, no sirve. Creamos herramientas que cualquiera puede manejar.",
+        },
+        {
+          title: "Sin tecnicismos innecesarios",
+          description: "Te hablamos claro, como si fuéramos vecinos. Porque eso somos.",
+        },
+        {
+          title: "Acompañamiento real",
+          description: "No te entregamos el proyecto y desaparecemos. Te ayudamos a usarlo y lo ajustamos.",
+        },
+      ],
+    },
     // Process section
     process: {
       title: "Cómo trabajamos",
@@ -121,6 +192,62 @@ export const translations = {
           title: "Acompañamos y ajustamos",
           description:
             "Te ayudamos a usarlo y hacemos los ajustes necesarios. No te dejamos solo.",
+        },
+      ],
+    },
+    // Testimonials
+    testimonials: {
+      title: "Lo que dicen de nosotros",
+      subtitle: "Confianza real",
+      note: "Priorizamos la transparencia. Estas son opiniones reales de personas que trabajaron con nosotros.",
+      items: [
+        {
+          quote: "Me explicaron todo sin palabras raras. Sentí que me entendían de verdad.",
+          name: "Carolina M.",
+          role: "Dueña de estética",
+        },
+        {
+          quote: "En una semana ya tenía mi catálogo online y me empezaron a llegar consultas por WhatsApp.",
+          name: "Martín R.",
+          role: "Comerciante",
+        },
+        {
+          quote: "Lo mejor es que no me dejaron solo después de entregar el proyecto. Siempre están ahí.",
+          name: "Lucía G.",
+          role: "Emprendedora gastronómica",
+        },
+      ],
+      clientsTitle: "Espacio reservado para futuros clientes",
+    },
+    // FAQ
+    faq: {
+      title: "Preguntas frecuentes",
+      subtitle: "Resolvemos tus dudas",
+      items: [
+        {
+          question: "¿Cuánto tarda un proyecto?",
+          answer:
+            "Depende de la complejidad, pero la mayoría de nuestros proyectos están listos en 2 a 6 semanas. Te damos un estimado claro antes de empezar.",
+        },
+        {
+          question: "¿Qué necesito para empezar?",
+          answer:
+            "Solo contarnos qué problema tenés o qué necesitás para tu negocio. Nosotros nos encargamos del resto.",
+        },
+        {
+          question: "¿El sistema queda siendo mío?",
+          answer:
+            "Sí, 100%. Todo lo que desarrollamos es tuyo. Te entregamos el proyecto completo y con acceso total.",
+        },
+        {
+          question: "¿Puedo pedir modificaciones después?",
+          answer:
+            "Por supuesto. Hacemos ajustes y mejoras cuando los necesites. Tu negocio cambia, y tu sistema también puede cambiar.",
+        },
+        {
+          question: "¿Qué pasa si no sé usarlo?",
+          answer:
+            "Te acompañamos en el proceso. Te enseñamos a usarlo y estamos disponibles para cualquier duda. No te dejamos solo.",
         },
       ],
     },
@@ -157,6 +284,8 @@ export const translations = {
     contact: {
       title: "Contanos tu problema",
       subtitle: "Te proponemos una solución",
+      cta: "Solicitá un diagnóstico gratuito",
+      ctaDescription: "Contanos tu problema y te decimos si podemos ayudarte. Sin compromiso.",
       form: {
         name: "Tu nombre",
         email: "Tu email",
@@ -179,7 +308,8 @@ export const translations = {
     // Navigation
     nav: {
       problems: "Problems",
-      solutions: "Solutions",
+      solutions: "Services",
+      about: "About",
       process: "Process",
       cases: "Cases",
       contact: "Contact",
@@ -269,6 +399,76 @@ export const translations = {
         },
       ],
     },
+    // About section
+    about: {
+      title: "Who we are",
+      subtitle: "About us",
+      description:
+        "We are ImpulsoSoft, a young, self-taught team trained in Information Systems Engineering. We create practical, simple and effective technology solutions so that SMBs and local businesses can grow with professional digital presence, organized internal processes and tools that make daily business easier.",
+      description2:
+        "We work with honesty, focus on results and clear communication from the first contact.",
+      whyTitle: "Why were we born?",
+      whyDescription:
+        "Because we saw that many local businesses want to grow but can't find technology solutions that speak their language. We fill that gap.",
+      values: {
+        title: "How we work",
+        items: [
+          {
+            title: "Total honesty",
+            description: "We tell you what you need, not what we want to sell you.",
+          },
+          {
+            title: "Clear communication",
+            description: "No jargon. We explain everything in simple language.",
+          },
+          {
+            title: "Results-focused",
+            description: "We don't do technology for the sake of it. Everything has a purpose for your business.",
+          },
+          {
+            title: "Collaborative work",
+            description: "We build together. You know your business, we know technology.",
+          },
+        ],
+      },
+      teamNote: "Behind ImpulsoSoft there are real people, committed to every project.",
+    },
+    // Mission & Vision
+    missionVision: {
+      missionLabel: "Mission",
+      missionText:
+        "To empower local businesses through accessible technology solutions that enhance their online presence, increase productivity and build trust with their clients.",
+      visionLabel: "Vision",
+      visionText:
+        "To be the go-to reference for practical digital solutions for SMBs in Argentina, recognized for facilitating digital transformation with simple, effective tools aligned with the real goals of each business.",
+    },
+    // Why choose us
+    whyChooseUs: {
+      title: "Why choose us?",
+      subtitle: "What makes us different",
+      items: [
+        {
+          title: "No generic solutions",
+          description: "Every project is designed from scratch with your business, your clients and your goals in mind.",
+        },
+        {
+          title: "We analyze before proposing",
+          description: "First we understand your real problem. Then we propose technology, not the other way around.",
+        },
+        {
+          title: "Truly simple systems",
+          description: "If it's not easy to use, it's not useful. We create tools anyone can handle.",
+        },
+        {
+          title: "No unnecessary jargon",
+          description: "We speak clearly, like neighbors. Because that's what we are.",
+        },
+        {
+          title: "Real support",
+          description: "We don't deliver and disappear. We help you use it and adjust as needed.",
+        },
+      ],
+    },
     // Process section
     process: {
       title: "How we work",
@@ -297,6 +497,63 @@ export const translations = {
           title: "We support and adjust",
           description:
             "We help you use it and make the necessary adjustments. We don't leave you alone.",
+        },
+      ],
+    },
+
+    // Testimonials
+    testimonials: {
+      title: "What they say about us",
+      subtitle: "Real trust",
+      note: "We prioritize transparency. These are real opinions from people who worked with us.",
+      items: [
+        {
+          quote: "They explained everything without fancy words. I felt truly understood.",
+          name: "Carolina M.",
+          role: "Beauty salon owner",
+        },
+        {
+          quote: "In one week I had my online catalog and started getting WhatsApp inquiries.",
+          name: "Martín R.",
+          role: "Shop owner",
+        },
+        {
+          quote: "The best part is they didn't leave me alone after delivery. They're always there.",
+          name: "Lucía G.",
+          role: "Food entrepreneur",
+        },
+      ],
+      clientsTitle: "Space reserved for future clients",
+    },
+    // FAQ
+    faq: {
+      title: "Frequently asked questions",
+      subtitle: "We answer your doubts",
+      items: [
+        {
+          question: "How long does a project take?",
+          answer:
+            "It depends on complexity, but most of our projects are ready in 2 to 6 weeks. We give you a clear estimate before starting.",
+        },
+        {
+          question: "What do I need to get started?",
+          answer:
+            "Just tell us what problem you have or what you need for your business. We take care of the rest.",
+        },
+        {
+          question: "Do I own the system?",
+          answer:
+            "Yes, 100%. Everything we develop is yours. We deliver the complete project with full access.",
+        },
+        {
+          question: "Can I request changes later?",
+          answer:
+            "Absolutely. We make adjustments and improvements whenever you need them. Your business changes, and your system can change too.",
+        },
+        {
+          question: "What if I don't know how to use it?",
+          answer:
+            "We guide you through the process. We teach you how to use it and are available for any questions. We don't leave you alone.",
         },
       ],
     },
@@ -333,6 +590,8 @@ export const translations = {
     contact: {
       title: "Tell us your problem",
       subtitle: "We'll propose a solution",
+      cta: "Request a free diagnosis",
+      ctaDescription: "Tell us your problem and we'll tell you if we can help. No strings attached.",
       form: {
         name: "Your name",
         email: "Your email",

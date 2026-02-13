@@ -5,6 +5,8 @@ import ProblemsSection from "@/components/sections/ProblemsSection";
 import SolutionsSection from "@/components/sections/SolutionsSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import CaseStudySection from "@/components/sections/CaseStudySection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -21,6 +23,7 @@ const Index = () => {
           <ProcessSection />
           <CaseStudySection />
           <ContactSection />
+          <FAQSection />
         </main>
         <Footer />
         <WhatsAppButton />

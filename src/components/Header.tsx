@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "@/lenguajeContext/LanguageContext";
@@ -9,13 +10,22 @@ import logoImage from "/logoCorto.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleHashClick = (e: React.MouseEvent, href: string) => {
+    if (location.pathname !== "/") {
+      e.preventDefault();
+      navigate("/" + href);
+    }
+  };
 
   const navItems = [
-    { href: "#problems", label: t.nav.problems },
     { href: "#solutions", label: t.nav.solutions },
+    { href: "#problems", label: t.nav.problems },
     { href: "#process", label: t.nav.process },
     { href: "#cases", label: t.nav.cases },
     { href: "#contact", label: t.nav.contact },
+    { href: "/nosotros", label: t.nav.about },
   ];
 
   return (
@@ -23,21 +33,32 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0">
             <Logo imageSrc={logoImage} />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.href.startsWith("/") ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleHashClick(e, item.href)}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {item.label}
+                </a>
+              )
+            )}
           </nav>
 
           {/* Right side */}
@@ -62,16 +83,27 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted rounded-lg"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.href.startsWith("/") ? (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted rounded-lg"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => { handleHashClick(e, item.href); setIsMenuOpen(false); }}
+                    className="px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted rounded-lg"
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
             </div>
           </nav>
         )}
