@@ -62,7 +62,7 @@ const ContactSection = () => {
       <div className="container-custom">
 
         {/* CTA Banner */}
-        <div className="max-w-3xl mx-auto mb-12 text-center p-8 rounded-2xl bg-gradient-to-r from-primary/10 to-brand-green/10 border border-primary/20">
+        <div className="-mt-24 relative z-10 max-w-3xl mx-auto mb-44 text-center p-8 rounded-2xl bg-gradient-to-r from-primary/10 to-brand-green/10 border border-primary/20">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             {t.contact.cta}
           </h3>
@@ -76,7 +76,7 @@ const ContactSection = () => {
             </Button>
           </a>
         </div>
-        <div id="contact-form" className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
+        <div id="contact-form" className="scroll-mt-24 md:scroll-mt-32 grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
           {/* Lado izquierdo - Texto e WhatsApp */}
           <div className="text-center lg:text-left">
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">
