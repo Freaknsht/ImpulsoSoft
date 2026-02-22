@@ -1,4 +1,3 @@
-import { LanguageProvider } from "@/lenguajeContext/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import ProblemsSection from "@/components/sections/ProblemsSection";
@@ -13,22 +12,20 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
-    <LanguageProvider>
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main>
-          <HeroSection />
-          <ProblemsSection />
-          <SolutionsSection />
-          <ProcessSection />
-          <CaseStudySection />
-          <ContactSection />
-          <FAQSection />
-        </main>
-        <Footer />
-        <WhatsAppButton />
-      </div>
-    </LanguageProvider>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <HeroSection />
+        <ProblemsSection />
+        <SolutionsSection />
+        <ProcessSection />
+        <CaseStudySection />
+        <ContactSection />
+        <FAQSection />
+      </main>
+      <Footer />
+      <WhatsAppButton />
+    </div>
   );
 };
 

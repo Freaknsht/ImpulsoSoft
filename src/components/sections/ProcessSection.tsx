@@ -10,7 +10,7 @@ const ProcessSection = () => {
   );
 
   return (
-    <section id="process" className="section-padding bg-secondary text-secondary-foreground">
+    <section id="process" className="section-padding bg-secondary text-secondary-foreground overflow-hidden">
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">

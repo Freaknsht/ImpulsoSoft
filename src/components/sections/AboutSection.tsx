@@ -32,15 +32,14 @@ const AboutSection = () => {
                     )}
                 >
                     <div className="grid md:grid-cols-2 gap-8 items-center">
-                        {/* Team placeholder */}
+                        {/* Team image */}
                         <div className="relative">
-                            <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 via-brand-green/10 to-secondary/10 border border-border flex items-center justify-center">
-                                <div className="text-center p-8">
-                                    <Users className="w-16 h-16 text-primary/40 mx-auto mb-4" />
-                                    <p className="text-sm text-muted-foreground italic">
-                                        {t.about.teamNote}
-                                    </p>
-                                </div>
+                            <div className="aspect-square rounded-2xl overflow-hidden border border-border shadow-md">
+                                <img
+                                    src="/impulsoSoft.png"
+                                    alt="Impulso Soft Team"
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                         </div>
                         {/* Text */}
